@@ -26,8 +26,8 @@
             <label for="name">Nome</label>
             <input 
               type="text" 
-              id="name" 
-              name="name" 
+              id="nome" 
+              name="nome" 
               placeholder="Seu nome" 
               required 
               minlength="2"
@@ -49,15 +49,15 @@
             <label for="phone">Telefone</label>
             <input 
               type="tel" 
-              id="phone" 
-              name="phone" 
+              id="telefone" 
+              name="telefone" 
               placeholder="(00) 00000-0000" 
               title="Infome um número de celular válido"
               required
             >
           </div>
           
-          <button type="button" class="submit-btn" onclick="handleCadastrarUsuario">
+          <button type="button" class="submit-btn" onclick="handleCadastrarUsuario(event)">
             Cadastrar
           </button>
         </form>
@@ -70,33 +70,22 @@
       function handleCadastrarUsuario(event) {
         event.preventDefault();
 
-        const spreadsheetId = '1cJgW-YScUwcmXxFRLkUxj_WCsXSlDewOGpeTL1Khqlg';
-        const accessToken = '572875752030-9bols2ladk455vch68be6ahqt7ngmipj.apps.googleusercontent.com';
-        const sheetName = 'Leads';
+        const dados = {
+          nome: document.getElementById("nome").value,
+          email: document.getElementById("email").value,
+          telefone: document.getElementById("telefone").value,
+        };
 
-        const novoRegistro = [
-          ["João", "joao@email.com", "(11) 99999-9999"]
-        ];
-
-        fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}!A1:append?valueInputOption=USER_ENTERED`, {
+        fetch('https://script.google.com/macros/s/AKfycbxXU7wznjzuF6cIzQT6DtLBdt5COFP3ylm1NKRn6dsiFDuhvyzWPefmi2lT5z8uw1q2/exec', {
           method: "POST",
+          body: JSON.stringify(dados),
           headers: {
-            "Authorization": `Bearer ${accessToken}`,
             "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            values: novoRegistro
-          })
+          }
         })
-        .then(res => res.json())
-        .then(data => {
-          console.log("Registro adicionado com sucesso:", data);
-        })
-        .catch(err => {
-          console.error("Erro ao adicionar registro:", err);
-        });
-
-
+        .then(res => res.text())
+        .then(resp => alert("Dados enviados!"))
+        .catch(err => {alert("Erro ao enviar"); console.log(err)});
       }
     </script>
   </body>
