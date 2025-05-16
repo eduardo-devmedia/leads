@@ -1,0 +1,39 @@
+/* CSS Variables */
+:root {
+  /* Colors */
+  --color-background: #f9f7fa;
+  --color-primary: #c4b5fd;
+  --color-primary-light: #ddd6fe;
+  --color-secondary: #fbcfe8;
+  --color-accent: #a7f3d0;
+  --color-text: #4b5563;
+  --color-text-light: #9ca3af;
+  --color-heading: #1f2937;
+  --color-error: #fca5a5;
+  --color-success: #a7f3d0;
+  
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-xxl: 3rem;
+  
+  /* Typography */
+  --font-family: 'Poppins', sans-serif;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-xxl: 2rem;
+  
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  
+  /* Transitions */
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 300ms ease-in-out;
+}
