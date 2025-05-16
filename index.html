@@ -67,5 +67,37 @@
       <div class="decorative-element top-left"></div>
       <div class="decorative-element bottom-right"></div>
     </div>
+    <script>
+      function handleCadastrarUsuario() {
+        
+        const spreadsheetId = '1cJgW-YScUwcmXxFRLkUxj_WCsXSlDewOGpeTL1Khqlg';
+        const accessToken = '572875752030-9bols2ladk455vch68be6ahqt7ngmipj.apps.googleusercontent.com';
+        const sheetName = 'Leads';
+
+        const novoRegistro = [
+          ["João", "joao@email.com", "(11) 99999-9999"]
+        ];
+
+        fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}!A1:append?valueInputOption=USER_ENTERED`, {
+          method: "POST",
+          headers: {
+            "Authorization": `Bearer ${accessToken}`,
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            values: novoRegistro
+          })
+        })
+        .then(res => res.json())
+        .then(data => {
+          console.log("Registro adicionado com sucesso:", data);
+        })
+        .catch(err => {
+          console.error("Erro ao adicionar registro:", err);
+        });
+
+
+      }
+    </script>
   </body>
 </html>
