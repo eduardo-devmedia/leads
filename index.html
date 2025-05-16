@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastre-se</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div class="lead-capture-card">
+        <div class="card-header">
+          <h1>Cadastro</h1>
+          <p>Informe seus dados e entraremos em contato assim que possível</p>
+          <div class="decorative-line"></div>
+        </div>
+        
+        <form class="lead-form" action="#" method="POST">
+          <div class="form-group">
+            <label for="name">Nome</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              placeholder="Seu nome" 
+              required 
+              minlength="2"
+            >
+          </div>
+          
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              placeholder="email@exemplo.com.br" 
+              required
+            >
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Telefone</label>
+            <input 
+              type="tel" 
+              id="phone" 
+              name="phone" 
+              placeholder="(00) 00000-0000" 
+              pattern="[0-9() -]{10,15}"
+              title="Infome um número de celular válido"
+              required
+            >
+          </div>
+          
+          <button type="submit" class="submit-btn">
+            Cadastrar
+          </button>
+        </form>
+      </div>
+      
+      <div class="decorative-element top-left"></div>
+      <div class="decorative-element bottom-right"></div>
+    </div>
+  </body>
+</html>
